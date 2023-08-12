@@ -3,6 +3,7 @@ extends HBoxContainer
 @export var option_text := ""
 @export var ordinal := 1
 @export var selected := false
+@export var on_confirm: Callable
 
 @onready var label := $OptionLabel
 @onready var ordinal_label := $Ordinal
@@ -16,3 +17,15 @@ func _ready():
 		cursor.show()
 	else:
 		cursor.hide()
+
+
+func select() -> void:
+	cursor.show()
+
+
+func unselect() -> void:
+	cursor.hide()
+
+
+func confirm() -> void:
+	on_confirm.call()

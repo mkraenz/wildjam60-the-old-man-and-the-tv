@@ -8,11 +8,14 @@ const OptionsRow = preload("res://ui/textbox/option_row.tscn")
 @onready var options := $ScreenMargin/Padding/V/Options
 @onready var label := $ScreenMargin/Padding/V/Label
 
+var selected_option_index := 0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hide()
 	eventbus.connect("show_textbox", handle_show)
+	eventbus.connect("close_textbox", close)
 
 
 func _unhandled_input(event):
@@ -21,8 +24,24 @@ func _unhandled_input(event):
 
 	if event is InputEventKey:
 		if Input.is_action_just_pressed("close"):
-			print("close")
 			close()
+
+		if Input.is_action_just_pressed("move_down"):
+			var children = options.get_children()
+			children[selected_option_index].unselect()
+			selected_option_index = (selected_option_index + 1) % children.size()
+			children[selected_option_index].select()
+
+		if Input.is_action_just_pressed("move_up"):
+			print("move up triggered")
+			var children = options.get_children()
+			children[selected_option_index].unselect()
+			selected_option_index = (selected_option_index - 1) % children.size()
+			children[selected_option_index].select()
+
+		if Input.is_action_just_pressed("confirm"):
+			var children = options.get_children()
+			children[selected_option_index].confirm()
 
 
 func handle_show(label_and_options: Dictionary) -> void:
@@ -30,22 +49,34 @@ func handle_show(label_and_options: Dictionary) -> void:
 
 	label.text = label_and_options["label"]
 
-	for i in label_and_options["options"].size():
-		var option = label_and_options["options"][i]
-		var option_row = OptionsRow.instantiate()
-		option_row.option_text = option.label
-		option_row.ordinal = i + 1  # i is zero based
-		if i == 0:
-			option_row.selected = true
+	var quit_options_row = make_options_row(
+		{"label": "Quit", "event_name_on_selected": "close_textbox"}, 0
+	)
+	options.add_child(quit_options_row)
 
+	for i in label_and_options["options"].size():
+		var option: Dictionary = label_and_options["options"][i]
+		var option_row := make_options_row(option, i + 1)
 		options.add_child(option_row)
 
 	show()
+
+	get_viewport().set_input_as_handled()  # without this the move_up input handler in _unhandled_input(..) will be triggered and cause the cursor to move up immediately on walking into the object
 
 
 func clear_options() -> void:
 	for child in options.get_children():
 		child.queue_free()
+
+
+func make_options_row(option: Dictionary, ordinal: int) -> Control:
+	var options_row = OptionsRow.instantiate()
+	options_row.option_text = option.label
+	options_row.ordinal = ordinal
+	options_row.on_confirm = func(): eventbus.emit_signal(option.event_name_on_selected)
+	if ordinal == 0:
+		options_row.selected = true
+	return options_row
 
 
 func close() -> void:

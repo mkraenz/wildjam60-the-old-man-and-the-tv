@@ -58,5 +58,4 @@ func open_textbox(interaction_key: String) -> void:
 
 
 func on_textbox_closed() -> void:
-	print("textbox closed")
 	textbox_open = false
