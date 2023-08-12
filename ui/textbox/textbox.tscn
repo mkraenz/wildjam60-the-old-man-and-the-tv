@@ -49,4 +49,5 @@ theme_override_constants/margin_bottom = 8
 [node name="Label" type="Label" parent="ScreenMargin/TextContainer"]
 layout_mode = 2
 size_flags_vertical = 1
-text = "Hello Sir"
+text = "Darn that old TV. It's malfunctioning again!? How can one small apparatus cause so much trouble?"
+autowrap_mode = 3
