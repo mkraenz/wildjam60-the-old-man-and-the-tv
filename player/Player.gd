@@ -4,6 +4,7 @@ class_name Player
 const Tv = preload("res://world/tv.gd")
 
 @onready var ray: RayCast2D = $MoveDirectionRay
+@onready var gstate := GState
 
 const LEFT = Vector2.LEFT * 16
 const RIGHT = Vector2.RIGHT * 16
@@ -12,7 +13,7 @@ const DOWN = Vector2.DOWN * 16
 
 
 func _unhandled_input(_event):
-	if GState.textbox_open:
+	if gstate.textbox_open:
 		return  # input handling should be inside the textbox if textbox is open
 
 	var direction := Vector2.ZERO
@@ -49,7 +50,7 @@ func handle_collision(collider: Object, relative_position_of_object: Vector2) ->
 				normalized_direction,
 				"(normalized) from the player"
 			)
-			GState.open_textbox()
+			gstate.open_textbox("tv-from-left")
 		_:
 			prints(
 				"WARNING:",

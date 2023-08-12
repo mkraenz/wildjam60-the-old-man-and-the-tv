@@ -56,12 +56,15 @@ size_flags_vertical = 1
 text = "Darn that old TV. It's malfunctioning again!? How can one small apparatus cause so much trouble?"
 autowrap_mode = 3
 
-[node name="OptionRow" parent="ScreenMargin/Padding/V" instance=ExtResource("3_jct0y")]
+[node name="Options" type="VBoxContainer" parent="ScreenMargin/Padding/V"]
+layout_mode = 2
+
+[node name="OptionRow" parent="ScreenMargin/Padding/V/Options" instance=ExtResource("3_jct0y")]
 layout_mode = 2
 option_text = "Hit it"
 selected = true
 
-[node name="OptionRow2" parent="ScreenMargin/Padding/V" instance=ExtResource("3_jct0y")]
+[node name="OptionRow2" parent="ScreenMargin/Padding/V/Options" instance=ExtResource("3_jct0y")]
 layout_mode = 2
 option_text = "Hit it harder"
 ordinal = 2
