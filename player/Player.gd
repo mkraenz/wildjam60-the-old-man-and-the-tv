@@ -4,6 +4,7 @@ class_name Player
 const Tv = preload("res://world/tv.gd")
 
 @onready var ray: RayCast2D = $MoveDirectionRay
+@onready var eventbus := Eventbus
 
 const LEFT = Vector2.LEFT * 16
 const RIGHT = Vector2.RIGHT * 16
@@ -46,6 +47,7 @@ func handle_collision(collider: Object, relative_position_of_object: Vector2) ->
 				normalized_direction,
 				"(normalized) from the player"
 			)
+			eventbus.show_textbox.emit()
 		_:
 			prints(
 				"WARNING:",

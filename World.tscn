@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bi08raw4e5yar"]
+[gd_scene load_steps=11 format=3 uid="uid://bi08raw4e5yar"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_dmawl"]
 [ext_resource type="PackedScene" uid="uid://dnhulsx17skef" path="res://player/Player.tscn" id="3_5oc1k"]
+[ext_resource type="PackedScene" uid="uid://bk5vw578bmek4" path="res://ui/textbox/textbox.tscn" id="4_hvj5p"]
 [ext_resource type="PackedScene" uid="uid://lwnm4h0vv8lj" path="res://world/tv.tscn" id="5_2a2p7"]
 [ext_resource type="PackedScene" uid="uid://eh3x5k36w1xu" path="res://ui/end/end.tscn" id="6_f0w17"]
 [ext_resource type="Theme" uid="uid://6q2onjex0t3g" path="res://ui/base.theme" id="6_htdhr"]
@@ -212,6 +213,9 @@ theme = ExtResource("6_htdhr")
 
 [node name="End" parent="UI/UI" instance=ExtResource("6_f0w17")]
 visible = false
+layout_mode = 1
+
+[node name="Textbox" parent="UI/UI" instance=ExtResource("4_hvj5p")]
 layout_mode = 1
 
 [node name="TileMap" type="TileMap" parent="."]
