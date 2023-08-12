@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bk5vw578bmek4"]
+[gd_scene load_steps=5 format=3 uid="uid://bk5vw578bmek4"]
 
 [ext_resource type="Theme" uid="uid://6q2onjex0t3g" path="res://ui/base.theme" id="1_f31mw"]
 [ext_resource type="Script" path="res://ui/textbox/textbox.gd" id="1_lnd46"]
+[ext_resource type="PackedScene" uid="uid://x1fviub386b5" path="res://ui/textbox/option_row.tscn" id="3_jct0y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d46a8"]
 bg_color = Color(0, 0, 0, 1)
@@ -27,7 +28,7 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -82.0
+offset_top = -86.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/margin_left = 8
@@ -39,15 +40,28 @@ theme_override_constants/margin_bottom = 8
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_d46a8")
 
-[node name="TextContainer" type="MarginContainer" parent="ScreenMargin"]
+[node name="Padding" type="MarginContainer" parent="ScreenMargin"]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="Label" type="Label" parent="ScreenMargin/TextContainer"]
+[node name="V" type="VBoxContainer" parent="ScreenMargin/Padding"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScreenMargin/Padding/V"]
 layout_mode = 2
 size_flags_vertical = 1
 text = "Darn that old TV. It's malfunctioning again!? How can one small apparatus cause so much trouble?"
 autowrap_mode = 3
+
+[node name="OptionRow" parent="ScreenMargin/Padding/V" instance=ExtResource("3_jct0y")]
+layout_mode = 2
+option_text = "Hit it"
+selected = true
+
+[node name="OptionRow2" parent="ScreenMargin/Padding/V" instance=ExtResource("3_jct0y")]
+layout_mode = 2
+option_text = "Hit it harder"
+ordinal = 2
