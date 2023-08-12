@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.1", "GL Compatibility")
 [autoload]
 
 Eventbus="*res://global/Eventbus.gd"
+GState="*res://global/GState.gd"
 
 [display]
 

@@ -4,7 +4,6 @@ class_name Player
 const Tv = preload("res://world/tv.gd")
 
 @onready var ray: RayCast2D = $MoveDirectionRay
-@onready var eventbus := Eventbus
 
 const LEFT = Vector2.LEFT * 16
 const RIGHT = Vector2.RIGHT * 16
@@ -13,6 +12,9 @@ const DOWN = Vector2.DOWN * 16
 
 
 func _unhandled_input(_event):
+	if GState.textbox_open:
+		return  # input handling should be inside the textbox if textbox is open
+
 	var direction := Vector2.ZERO
 	if Input.is_action_just_pressed("move_left"):
 		direction = LEFT
@@ -47,7 +49,7 @@ func handle_collision(collider: Object, relative_position_of_object: Vector2) ->
 				normalized_direction,
 				"(normalized) from the player"
 			)
-			eventbus.show_textbox.emit()
+			GState.open_textbox()
 		_:
 			prints(
 				"WARNING:",
