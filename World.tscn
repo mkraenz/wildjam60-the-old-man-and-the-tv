@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bi08raw4e5yar"]
+[gd_scene load_steps=13 format=3 uid="uid://bi08raw4e5yar"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_dmawl"]
 [ext_resource type="PackedScene" uid="uid://dnhulsx17skef" path="res://player/Player.tscn" id="3_5oc1k"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://eh3x5k36w1xu" path="res://ui/end/end.tscn" id="6_f0w17"]
 [ext_resource type="Theme" uid="uid://6q2onjex0t3g" path="res://ui/base.theme" id="6_htdhr"]
 [ext_resource type="PackedScene" uid="uid://by26r56tlppwh" path="res://world/sofa.tscn" id="7_y6yjn"]
+[ext_resource type="AudioStream" uid="uid://dgdk24vy5685w" path="res://third-party/TheOuterLinux/Brahms-Vals3-synth.ogg" id="9_g7fr2"]
 [ext_resource type="Texture2D" uid="uid://ul4n7nkxe12w" path="res://third-party/kenney-1-bit/monochrome-transparent.png" id="10_mnkx4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c8j10"]
@@ -245,3 +246,7 @@ limit_right = 325
 limit_bottom = 1300
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_g7fr2")
+autoplay = true

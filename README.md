@@ -8,7 +8,9 @@ Rule Change: Hitting it, fixes it.
 
 ## Assets
 
-- [tileset from kenney.nl](https://kenney.nl/assets/1-bit-pack) under CC0 1.0
+- [tileset from kenney.nl](https://kenney.nl/assets/1-bit-pack) - CC0 1.0
+- [Background music Brahms by TheOuterLinux](https://opengameart.org/content/brahms-val3) - CC0 1.0
+- [PressStart2P font](https://fonts.google.com/specimen/Press+Start+2P) - OFL
 - [Konami Code](https://de.wikipedia.org/wiki/Konami_Code)
 
 ## Build and Export to itch.io
