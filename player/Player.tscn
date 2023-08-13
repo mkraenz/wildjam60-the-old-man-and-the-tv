@@ -58,3 +58,4 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
 volume_db = -20.0
+bus = &"Sounds"

@@ -251,3 +251,4 @@ position_smoothing_speed = 10.0
 stream = ExtResource("9_g7fr2")
 volume_db = -10.0
 autoplay = true
+bus = &"Music"
