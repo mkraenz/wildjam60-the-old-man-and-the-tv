@@ -5,6 +5,7 @@ const Tv = preload("res://world/tv.gd")
 
 @onready var ray: RayCast2D = $MoveDirectionRay
 @onready var gstate := GState
+@onready var audio_anims := $AnimationPlayer
 
 const LEFT = Vector2.LEFT * 16
 const RIGHT = Vector2.RIGHT * 16
@@ -31,7 +32,9 @@ func _unhandled_input(_event):
 	if ray.is_colliding():
 		handle_collision(ray.get_collider(), ray.target_position)
 	else:
-		global_position += direction
+		if direction != Vector2.ZERO:
+			global_position += direction
+			audio_anims.play("step")
 
 
 func handle_collision(collider: Object, relative_position_of_object: Vector2) -> void:
