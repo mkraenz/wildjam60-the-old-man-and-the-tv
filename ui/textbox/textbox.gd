@@ -36,19 +36,19 @@ func _unhandled_input(event):
 	if not gstate.textbox_open:
 		return  # input handling should be on player if textbox is closed
 
+	if Input.is_action_just_pressed("close"):
+		close()
+
+	if Input.is_action_just_pressed("move_down"):
+		selected_option_index += 1
+
+	if Input.is_action_just_pressed("move_up"):
+		selected_option_index -= 1
+
+	if Input.is_action_just_pressed("confirm"):
+		confirm_selection()
+
 	if event is InputEventKey:
-		if Input.is_action_just_pressed("close"):
-			close()
-
-		if Input.is_action_just_pressed("move_down"):
-			selected_option_index += 1
-
-		if Input.is_action_just_pressed("move_up"):
-			selected_option_index -= 1
-
-		if Input.is_action_just_pressed("confirm"):
-			confirm_selection()
-
 		if Input.is_anything_pressed() and event.keycode in range(KEY_0, KEY_9):
 			selected_option_index = event.keycode - KEY_0
 			confirm_selection()
