@@ -2,11 +2,15 @@ extends Control
 
 const OptionsRow = preload("res://ui/textbox/option_row.tscn")
 
+@export var CHAR_READ_RATE = 0.045
+
 @onready var gstate := GState
 @onready var eventbus := Eventbus
 
 @onready var options := $ScreenMargin/Padding/V/Options
 @onready var label := $ScreenMargin/Padding/V/Label
+
+var tween: Tween
 
 var selected_option_index = 0:
 	set = _set_selected_option_index
@@ -65,9 +69,28 @@ func handle_show(label_and_options: Dictionary) -> void:
 		var option_row := make_options_row(option, i + 1)
 		options.add_child(option_row)
 
+	options.hide()
+	animate_text()
 	show()
 
 	get_viewport().set_input_as_handled()  # without this the move_up input handler in _unhandled_input(..) will be triggered and cause the cursor to move up immediately on walking into the object
+
+
+func animate_text() -> void:
+	if tween:
+		tween.kill()  # Abort the previous animation.
+	tween = create_tween()
+	label.visible_characters = 0
+	(
+		tween
+		. tween_property(
+			label,
+			"visible_characters",
+			len(label.text),
+			len(label.text) * CHAR_READ_RATE,
+		)
+	)
+	tween.tween_callback(func(): options.show())
 
 
 func clear_options() -> void:

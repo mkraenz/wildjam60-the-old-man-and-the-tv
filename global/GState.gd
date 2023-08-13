@@ -8,7 +8,7 @@ var interactions = {
 	"tv-from-left":
 	{
 		"label":
-		"Darn that old TV. It's malfunctioning again!? How can one small apparatus cause so much trouble?",
+		"Darn that old TV. It's malfunctioning again!? How can one small apparatus cause just so much trouble?",
 		"options":
 		[
 			{"label": "Hit it", "event_name_on_selected": "hit_it"},
@@ -18,7 +18,7 @@ var interactions = {
 	"tv-from-right":
 	{
 		"label":
-		"Darn that old TV. It's malfunctioning again!? How can one small apparatus cause so much trouble?",
+		"Darn that old TV. It's malfunctioning again!? How can one small apparatus cause just so much trouble?",
 		"options":
 		[
 			{"label": "Hit it", "event_name_on_selected": "hit_it"},
@@ -28,7 +28,7 @@ var interactions = {
 	"tv-from-up":
 	{
 		"label":
-		"Darn that old TV. It's malfunctioning again!? How can one small apparatus cause so much trouble?",
+		"Darn that old TV. It's malfunctioning again!? How can one small apparatus cause just so much trouble?",
 		"options":
 		[
 			{"label": "Hit it", "event_name_on_selected": "hit_it"},
@@ -38,7 +38,7 @@ var interactions = {
 	"tv-from-down":
 	{
 		"label":
-		"Darn that old TV. It's malfunctioning again!? How can one small apparatus cause so much trouble?",
+		"Darn that old TV. It's malfunctioning again!? How can one small apparatus cause just so much trouble?",
 		"options":
 		[
 			{"label": "Hit it.", "event_name_on_selected": "hit_it"},
