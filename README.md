@@ -23,5 +23,5 @@ Rule Change: Hitting it, fixes it.
   - `echo .build/ >> .gitignore`
   - `rm -r .build && mkdir .build`
   - Project -> Export... -> Add Preset -> Web -> (if not already installed, download the HTML template) -> Set output path to `.build/` -> Export Project... -> filename `index.html` -> disable `Export with Debug` -> Export
-  - `zip .build/ .build/TheOldManAndTheTv.zip`
-- In itch.io, edit project -> Uploads -> Upload the zip file -> enable `This file will be played in the browser`
+  - `/home/mirco/programming/gamedev/itchio-butler/butler push .build mkraenz/the-old-man-and-the-tv:web`
+- In itch.io, edit project -> Uploads -> enable `This file will be played in the browser`
