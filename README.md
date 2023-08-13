@@ -1,4 +1,4 @@
-# Miro's Teatime
+# TypeScriptTeatime's The Old Man and the TV
 
 ## BHAG
 
@@ -20,13 +20,8 @@ Rule Change: Hitting it, fixes it.
 - enable `SharedArrayBuffer support — (Experimental)`
   - Fixes error message on game load: `The following features required to run Godot projects on the Web are missing: ...`
 - Build the Godot project using HTML template
-
   - `echo .build/ >> .gitignore`
-  - Project -> Export... -> Add Preset -> Web -> (if not already installed, download the HTML template) -> Set output path to `.build/` -> Export Project...
-  - package to zip
-
-  ```sh
-  rm -r .build
-  mv .build/TheOldManAndTheTv.html .build/index.html
-  zip .build/ .build/TheOldManAndTheTv.zip
-  ```
+  - `rm -r .build && mkdir .build`
+  - Project -> Export... -> Add Preset -> Web -> (if not already installed, download the HTML template) -> Set output path to `.build/` -> Export Project... -> filename `index.html` -> disable `Export with Debug` -> Export
+  - `zip .build/ .build/TheOldManAndTheTv.zip`
+- In itch.io, edit project -> Uploads -> Upload the zip file -> enable `This file will be played in the browser`
