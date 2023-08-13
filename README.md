@@ -23,5 +23,21 @@ Rule Change: Hitting it, fixes it.
   - `echo .build/ >> .gitignore`
   - `rm -r .build && mkdir .build`
   - Project -> Export... -> Add Preset -> Web -> (if not already installed, download the HTML template) -> Set output path to `.build/` -> Export Project... -> filename `index.html` -> disable `Export with Debug` -> Export
+    - or, as a command (once initial setup is done)
+    - `/home/mirco/programming/gamedev/godot4/Godot_v4.1.1-stable_linux.x86_64 --export-release Web .build/index.html`
   - `/home/mirco/programming/gamedev/itchio-butler/butler push .build mkraenz/the-old-man-and-the-tv:web`
 - In itch.io, edit project -> Uploads -> enable `This file will be played in the browser`
+
+Release script
+
+```sh
+rm -r .build && mkdir .build
+/home/mirco/programming/gamedev/godot4/Godot_v4.1.1-stable_linux.x86_64 --export-release Web .build/index.html
+/home/mirco/programming/gamedev/itchio-butler/butler push .build mkraenz/the-old-man-and-the-tv:web
+```
+
+## Start game from command line
+
+```sh
+/home/mirco/programming/gamedev/godot4/Godot_v4.1.1-stable_linux.x86_64 .
+```
