@@ -47,11 +47,17 @@ func _unhandled_input(event):
 			selected_option_index -= 1
 
 		if Input.is_action_just_pressed("confirm"):
-			var children = options.get_children()
-			children[selected_option_index].confirm()
+			confirm_selection()
 
-		if event.keycode in range(KEY_0, KEY_9):
+		if Input.is_anything_pressed() and event.keycode in range(KEY_0, KEY_9):
 			selected_option_index = event.keycode - KEY_0
+			confirm_selection()
+
+
+func confirm_selection() -> void:
+	var children = options.get_children()
+	prints("selected_option_index", selected_option_index)
+	children[selected_option_index].confirm()
 
 
 func handle_show(label_and_options: Dictionary) -> void:
