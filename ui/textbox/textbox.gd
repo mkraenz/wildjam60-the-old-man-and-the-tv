@@ -8,7 +8,17 @@ const OptionsRow = preload("res://ui/textbox/option_row.tscn")
 @onready var options := $ScreenMargin/Padding/V/Options
 @onready var label := $ScreenMargin/Padding/V/Label
 
-var selected_option_index := 0
+var selected_option_index = 0:
+	set = _set_selected_option_index
+
+
+func _set_selected_option_index(value: int) -> void:
+	var children = options.get_children()
+	if children.size() == 0:
+		return
+	children[selected_option_index].unselect()
+	selected_option_index = value % children.size()
+	children[selected_option_index].select()
 
 
 # Called when the node enters the scene tree for the first time.
@@ -27,20 +37,17 @@ func _unhandled_input(event):
 			close()
 
 		if Input.is_action_just_pressed("move_down"):
-			var children = options.get_children()
-			children[selected_option_index].unselect()
-			selected_option_index = (selected_option_index + 1) % children.size()
-			children[selected_option_index].select()
+			selected_option_index += 1
 
 		if Input.is_action_just_pressed("move_up"):
-			var children = options.get_children()
-			children[selected_option_index].unselect()
-			selected_option_index = (selected_option_index - 1) % children.size()
-			children[selected_option_index].select()
+			selected_option_index -= 1
 
 		if Input.is_action_just_pressed("confirm"):
 			var children = options.get_children()
 			children[selected_option_index].confirm()
+
+		if event.keycode in [KEY_1, KEY_2, KEY_3, KEY_4, KEY_5, KEY_6, KEY_7, KEY_8, KEY_9, KEY_0]:
+			selected_option_index = event.keycode - KEY_0
 
 
 func handle_show(label_and_options: Dictionary) -> void:

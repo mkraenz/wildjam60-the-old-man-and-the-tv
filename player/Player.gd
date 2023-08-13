@@ -35,7 +35,7 @@ func _unhandled_input(_event):
 
 
 func handle_collision(collider: Object, relative_position_of_object: Vector2) -> void:
-	var normalized_direction := relative_position_of_object.normalized()
+	var _normalized_direction := relative_position_of_object.normalized()
 
 	if not collider.has_meta("custom_type"):
 		prints("WARNING:", "missing meta data custom_type on object", collider)
