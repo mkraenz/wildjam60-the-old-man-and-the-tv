@@ -46,7 +46,7 @@ func _unhandled_input(event):
 			var children = options.get_children()
 			children[selected_option_index].confirm()
 
-		if event.keycode in [KEY_1, KEY_2, KEY_3, KEY_4, KEY_5, KEY_6, KEY_7, KEY_8, KEY_9, KEY_0]:
+		if event.keycode in range(KEY_0, KEY_9):
 			selected_option_index = event.keycode - KEY_0
 
 
