@@ -33,7 +33,6 @@ func _unhandled_input(event):
 			children[selected_option_index].select()
 
 		if Input.is_action_just_pressed("move_up"):
-			print("move up triggered")
 			var children = options.get_children()
 			children[selected_option_index].unselect()
 			selected_option_index = (selected_option_index - 1) % children.size()
@@ -50,7 +49,7 @@ func handle_show(label_and_options: Dictionary) -> void:
 	label.text = label_and_options["label"]
 
 	var quit_options_row = make_options_row(
-		{"label": "Quit", "event_name_on_selected": "close_textbox"}, 0
+		{"label": "Leave", "event_name_on_selected": "close_textbox"}, 0
 	)
 	options.add_child(quit_options_row)
 
@@ -65,6 +64,7 @@ func handle_show(label_and_options: Dictionary) -> void:
 
 
 func clear_options() -> void:
+	selected_option_index = 0
 	for child in options.get_children():
 		child.queue_free()
 

@@ -41,10 +41,35 @@ var interactions = {
 		"Darn that old TV. It's malfunctioning again!? How can one small apparatus cause so much trouble?",
 		"options":
 		[
-			{"label": "Hit it", "event_name_on_selected": "hit_it"},
+			{"label": "Hit it.", "event_name_on_selected": "hit_it"},
 			{"label": "Hit it harder!", "event_name_on_selected": "hit_it_harder"},
 		],
-	}
+	},
+	"tv-after-hard-hit":
+	{
+		"label": "Letting off some steam, huh? ",
+		"options":
+		[
+			{"label": "Hit again.", "event_name_on_selected": "hit_it"},
+			{"label": "Hit it 9000 times!", "event_name_on_selected": "hit_it_harder"},
+		],
+	},
+	"tv-hitting-worked":
+	{
+		"label": "It's working again! Nice.",
+		"options":
+		[
+			{"label": "Let's head back to the couch.", "event_name_on_selected": "close_textbox"},
+			{
+				"label": "Quit with a feeling of accomplishment",
+				"event_name_on_selected": "close_textbox"
+			},
+			{
+				"label": "Thanks for playing! Huh, who am I even talking to?",
+				"event_name_on_selected": "close_textbox"
+			},
+		],
+	},
 }
 
 

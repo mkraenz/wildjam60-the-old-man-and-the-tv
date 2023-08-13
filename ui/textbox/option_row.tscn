@@ -9,6 +9,7 @@ atlas = ExtResource("1_jf0dx")
 region = Rect2(408, 340, 16, 16)
 
 [node name="OptionRow" type="HBoxContainer"]
+custom_minimum_size = Vector2(180, 0)
 theme = ExtResource("1_mlmb8")
 script = ExtResource("1_pophu")
 
@@ -30,4 +31,6 @@ text = "1"
 
 [node name="OptionLabel" type="Label" parent="."]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Hit it"
+autowrap_mode = 3

@@ -35,21 +35,14 @@ func _unhandled_input(_event):
 
 
 func handle_collision(collider: Object, relative_position_of_object: Vector2) -> void:
-	print(collider)
 	var normalized_direction := relative_position_of_object.normalized()
 
-	print(collider.get_meta_list())
 	if not collider.has_meta("custom_type"):
 		prints("WARNING:", "missing meta data custom_type on object", collider)
 		return
 
 	match collider.get_meta("custom_type"):
 		"tv":
-			prints(
-				"colliding with the Tv. Tv is at ",
-				normalized_direction,
-				"(normalized) from the player"
-			)
 			gstate.open_textbox("tv-from-left")
 		_:
 			prints(
