@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://by26r56tlppwh"]
+
+[ext_resource type="Script" path="res://world/sofa.gd" id="1_28hji"]
+[ext_resource type="Texture2D" uid="uid://ul4n7nkxe12w" path="res://third-party/kenney-1-bit/monochrome-transparent.png" id="2_352ew"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kg1r6"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yeus"]
+atlas = ExtResource("2_352ew")
+region = Rect2(17, 136, 16, 16)
+
+[node name="Sofa" type="StaticBody2D"]
+script = ExtResource("1_28hji")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kg1r6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_0yeus")

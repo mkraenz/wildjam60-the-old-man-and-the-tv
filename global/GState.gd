@@ -59,7 +59,7 @@ var interactions = {
 		"label": "It's working again! Nice.",
 		"options":
 		[
-			{"label": "Let's head back to the couch.", "event_name_on_selected": "close_textbox"},
+			{"label": "Let's head back to the sofa.", "event_name_on_selected": "close_textbox"},
 			{
 				"label": "Quit with a feeling of accomplishment",
 				"event_name_on_selected": "close_textbox"
@@ -68,6 +68,15 @@ var interactions = {
 				"label": "Thanks for playing! Huh, who am I even talking to?",
 				"event_name_on_selected": "close_textbox"
 			},
+		],
+	},
+	"sofa":
+	{
+		"label": "Oh, my trusty sofa. You never malfunction, do you?",
+		"options":
+		[
+			{"label": "Sit down.", "event_name_on_selected": "close_textbox"},
+			{"label": "Sit down. Resignate.", "event_name_on_selected": "close_textbox"},
 		],
 	},
 }

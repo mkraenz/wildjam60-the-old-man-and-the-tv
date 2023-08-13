@@ -14,15 +14,11 @@ func _ready():
 func on_hit_it() -> void:
 	hits += 1
 	check_win_condition()
-	print("handle hit it")
-	pass
 
 
 func on_hit_it_harder() -> void:
 	hits += 2
 	check_win_condition()
-	print("handle hit it harder")
-	pass
 
 
 func check_win_condition() -> void:
@@ -31,3 +27,7 @@ func check_win_condition() -> void:
 			gstate.open_textbox("tv-after-hard-hit")
 		10, _:
 			gstate.open_textbox("tv-hitting-worked")
+
+
+func reset() -> void:
+	hits = 0

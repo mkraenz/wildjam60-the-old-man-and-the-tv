@@ -44,6 +44,8 @@ func handle_collision(collider: Object, relative_position_of_object: Vector2) ->
 	match collider.get_meta("custom_type"):
 		"tv":
 			gstate.open_textbox("tv-from-left")
+		"sofa":
+			gstate.open_textbox("sofa")
 		_:
 			prints(
 				"WARNING:",
